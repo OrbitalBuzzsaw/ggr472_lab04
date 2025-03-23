@@ -12,10 +12,18 @@ const map = new mapboxgl.Map({
 map.on('load', () => { 
 
     // Fetch collision data
-    fetch('https://github.com/OrbitalBuzzsaw/ggr472_lab04/blob/main/pedcyc_collision_06-21.geojson')
-        .then(response => response.json())
-        .then(collision_data => {  
-            console.log('GeoJSON Loaded:', collision_data);
+   fetch('https://yourusername.github.io/repo-name/pedcyc_collision_06-21.geojson')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(collision_data => {
+        console.log("GeoJSON Loaded:", collision_data);
+    })
+    .catch(error => console.error("Error loading GeoJSON:", error));
+
 
             // Add collision points to the map
             map.addSource('collisions', {
