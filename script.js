@@ -9,21 +9,17 @@ const map = new mapboxgl.Map({
     zoom: 11
 });
 
-map.on('load', () => { 
-
+map.on('load', () => {
     // Fetch collision data
-  fetch('https://raw.githubusercontent.com/OrbitalBuzzsaw/ggr472_lab04/main/pedcyc_collision_06-21.geojson')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(collision_data => {
-        console.log("GeoJSON Loaded:", collision_data);
-    })
-    .catch(error => console.error("Error loading GeoJSON:", error));
-
+    fetch('https://raw.githubusercontent.com/OrbitalBuzzsaw/ggr472_lab04/main/pedcyc_collision_06-21.geojson')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(collision_data => {
+            console.log('GeoJSON Loaded:', collision_data);
 
             // Add collision points to the map
             map.addSource('collisions', {
@@ -101,9 +97,7 @@ map.on('load', () => {
             map.on('mouseleave', 'hex-layer', () => {
                 map.getCanvas().style.cursor = '';
             });
-
         })
-        .catch(error => console.error("Error loading GeoJSON:", error));
-
-}); 
+        .catch(error => console.error('Error loading GeoJSON:', error));
+});
 
