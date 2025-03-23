@@ -17,7 +17,7 @@ map.on('load', () =>
         console.log('GeoJSON Loaded:', data);
         // Use the data in your map
     })
-    .catch(error => console.error('Error loading GeoJSON:', error)));
+    .catch(error => console.error('Error loading GeoJSON:', error)); 
 
         // Add collision points to the map
         map.addSource('collisions', {
