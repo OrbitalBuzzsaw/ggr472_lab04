@@ -14,7 +14,7 @@ map.on('load', () => {
     // Fetch collision data
     fetch('https://yourusername.github.io/repo-name/pedcyc_collision_06-21.geojson')
         .then(response => response.json())
-        .then(collision_data => {
+        .then(collision_data => {  
             console.log('GeoJSON Loaded:', collision_data);
 
             // Add collision points to the map
@@ -97,4 +97,5 @@ map.on('load', () => {
         })
         .catch(error => console.error("Error loading GeoJSON:", error));
 
-});
+}); 
+
