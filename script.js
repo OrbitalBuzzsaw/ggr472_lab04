@@ -11,15 +11,13 @@ const map = new mapboxgl.Map({
 
 map.on('load', () => 
     // Fetch collision data
-    fetch('./pedcyc_collision_06-21.geojson')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
+   fetch('https://yourusername.github.io/repo-name/pedcyc_collision_06-21.geojson')
+    .then(response => response.json())
+    .then(data => {
+        console.log('GeoJSON Loaded:', data);
+        // Use the data in your map
     })
-    .then(collision_data => {
-        console.log("Collision Data Loaded:", collision_data);
+    .catch(error => console.error('Error loading GeoJSON:', error));
 
         // Add collision points to the map
         map.addSource('collisions', {
