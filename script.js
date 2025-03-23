@@ -12,7 +12,7 @@ const map = new mapboxgl.Map({
 map.on('load', () => { 
 
     // Fetch collision data
-   fetch('https://yourusername.github.io/repo-name/pedcyc_collision_06-21.geojson')
+  fetch('https://raw.githubusercontent.com/OrbitalBuzzsaw/ggr472_lab04/main/pedcyc_collision_06-21.geojson')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
