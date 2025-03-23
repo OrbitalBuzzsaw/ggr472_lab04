@@ -9,7 +9,8 @@ const map = new mapboxgl.Map({
     zoom: 11
 });
 
-map.on('load', () => 
+map.on('load', () => {
+
     // Fetch collision data
    fetch('https://yourusername.github.io/repo-name/pedcyc_collision_06-21.geojson')
     .then(response => response.json())
@@ -17,7 +18,9 @@ map.on('load', () =>
         console.log('GeoJSON Loaded:', data);
         // Use the data in your map
     })
-    .catch(error => console.error('Error loading GeoJSON:', error)); 
+    })
+    .catch(error => console.error("Error loading GeoJSON:", error));
+
 
         // Add collision points to the map
         map.addSource('collisions', {
